@@ -1,6 +1,6 @@
 # Projeto
 
-Este pequeno projeto faz parte do material diático da Sprint **Qualidade de Software, Segurança e Sistemas Inteligentes** 
+Este pequeno projeto faz parte do material diático da Sprint **Qualidade de Software, Segurança e Sistemas Inteligentes**
 
 O objetivo aqui é ilutsrar o conteúdo apresentado na terceira aula.
 
@@ -38,6 +38,7 @@ O projeto conta com o cadastro de dados de pessoal que fizeram tesete para covid
 ## Informações do código
 
 O código js contem uma forma de obtenção de id, fazer requisições e consumir apis personalizada facilitando o entendimento
+
 ## Meu Front
 
 ## Como executar
