@@ -8,7 +8,7 @@ modelo = Model()
 avaliador = Avaliador()
 
 # Parâmetros
-url_dados = "database/covid_golden.csv"
+url_dados = "database/estudo_covid.csv"
 colunas = [
     "idade",
     "leucocitos",
