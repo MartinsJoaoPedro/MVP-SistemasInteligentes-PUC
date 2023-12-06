@@ -4,7 +4,7 @@ import joblib
 
 
 class Model:
-    def carrega_modelo(path, scaler=None):
+    def carrega_modelo(path, scaler_path=None):
         """Dependendo se o final for .pkl ou .joblib, carregamos de uma forma ou de outra"""
 
         if path.endswith(".pkl"):
@@ -14,8 +14,8 @@ class Model:
         else:
             raise Exception("Formato de arquivo não suportado")
 
-        if scaler is not None:
-            model.scaler = scaler
+        if scaler_path is not None:
+            model.scaler = scaler_path
 
         return model
 
@@ -39,6 +39,6 @@ class Model:
         X_input_scaled = model.scaler.transform(X_input)
 
         # Adicionando uma dimensão extra para corresponder ao formato esperado pelo modelo
-        diagnosis = model.predict(X_input_scaled.reshape(1, -1))
+        diagnostico = model.predict(X_input_scaled.reshape(1, -1))
 
-        return int(diagnosis[0])
+        return int(diagnostico[0])
