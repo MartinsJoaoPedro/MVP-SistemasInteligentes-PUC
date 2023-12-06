@@ -46,7 +46,7 @@ Y = Y.astype(int)
 print("Valores de entrada X:")
 print(X)
 
-print("\nValores de saída y:")
+print("\nValores de saída Y:")
 print(Y)
 
 
