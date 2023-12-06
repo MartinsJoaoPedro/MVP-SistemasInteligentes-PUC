@@ -1,5 +1,3 @@
-import array
-import numpy as np
 from model.avaliador import Avaliador
 from model.carregador import Carregador
 from model.modelo import Model
