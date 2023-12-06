@@ -8,8 +8,15 @@ modelo = Model()
 avaliador = Avaliador()
 
 # Parâmetros
-url_dados = "database/diabetes_golden.csv"
-colunas = ["idade", "leucocitos", "basofilos", "creatinina", "proteina_c", "hemoglobina"]
+url_dados = "database/covid_golden.csv"
+colunas = [
+    "idade",
+    "leucocitos",
+    "basofilos",
+    "creatinina",
+    "proteina_c",
+    "hemoglobina",
+]
 
 # Carga dos dados
 dataset = carregador.carregar_dados(url_dados, colunas)
@@ -22,7 +29,7 @@ Y = dataset.iloc[:, -1]
 # Método para testar o modelo de Regressão Logística a partir do arquivo correspondente
 def test_modelo_lr():
     # Importando o modelo de regressão logística
-    lr_path = "ml_model/diabetes_lr.pkl"
+    lr_path = "ml_model/covid_lr.pkl"
     modelo_lr = Model.carrega_modelo(lr_path)
 
     # Obtendo as métricas da Regressão Logística
@@ -39,7 +46,7 @@ def test_modelo_lr():
 # Método para testar modelo KNN a partir do arquivo correspondente
 def test_modelo_knn():
     # Importando modelo de KNN
-    knn_path = "ml_model/diabetes_knn.pkl"
+    knn_path = "ml_model/covid_knn.pkl"
     modelo_knn = Model.carrega_modelo(knn_path)
 
     # Obtendo as métricas do KNN
