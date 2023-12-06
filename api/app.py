@@ -87,8 +87,8 @@ def predict(form: PacienteSchema):
 
     # Carregando modelo
     ml_path = "ml_model/covid.pkl"
-    scaler = joblib.load("ml_model/scaler.joblib")
-    modelo = Model.carrega_modelo(ml_path, scaler)
+    scaler_path = joblib.load("ml_model/scaler.joblib")
+    modelo = Model.carrega_modelo(ml_path, scaler_path)
 
     paciente = Paciente(
         idade=form.idade,
@@ -99,7 +99,7 @@ def predict(form: PacienteSchema):
         hemoglobina=form.hemoglobina,
         rt_pcr=Model.preditor(modelo, form),
     )
-    logger.debug(f"Adicionando produto de idade: '{paciente.idade}'")
+    logger.debug(f"Adicionando paciente de idade: '{paciente.id}'")
 
     try:
         # Criando conexão com a base
@@ -116,7 +116,7 @@ def predict(form: PacienteSchema):
     except Exception as e:
         error_msg = "Não foi possível salvar novo item :/"
         logger.warning(
-            f"Erro ao adicionar paciente de idade '{paciente.idade}', {error_msg}"
+            f"Erro ao adicionar paciente de idade '{paciente.id}', {error_msg}"
         )
         return {"message": error_msg}, 400
 

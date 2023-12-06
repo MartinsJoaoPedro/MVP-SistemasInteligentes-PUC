@@ -37,16 +37,14 @@ class Paciente(Base):
         Cria um Paciente
 
         Arguments:
-        name: nome do paciente
-            preg: número de gestações
-            plas: concentração de glicose
-            pres: pressão sanguínea
-            skin: espessura da pele
-            test: insulina
-            mass: índice de massa corporal
-            pedi: função pedigree
-            age: idade
-            outcome: diagnóstico
+            name: nome do paciente
+            idade (int): idade (anos)
+            leucocitos (int): número de leucocitos
+            basofilos (int): concentração de basofilos
+            creatinina (int): pressão creatinina
+            proteina_c (int): espessura proteina_c
+            hemoglobina (int): número de hemoglobina
+            rt_pcr: diagnóstico
             data_insercao: data de quando o paciente foi inserido à base
         """
         self.idade = idade
