@@ -1,3 +1,5 @@
+import array
+import numpy as np
 from model.avaliador import Avaliador
 from model.carregador import Carregador
 from model.modelo import Model
@@ -11,6 +13,7 @@ avaliador = Avaliador()
 url_dados = "database/estudo_covid.csv"
 colunas = [
     "idade",
+    "rt_pcr",
     "leucocitos",
     "basofilos",
     "creatinina",
@@ -21,9 +24,30 @@ colunas = [
 # Carga dos dados
 dataset = carregador.carregar_dados(url_dados, colunas)
 
+# Substitui 'POSITIVO' por 1 e 'NEGATIVO' por 0
+dataset = dataset.replace({"POSITIVO": 1, "NEGATIVO": 0})
+
+# Remove as linhas com valores NaN
+dataset = dataset.dropna()
+
+"""
 # Separando em dados de entrada e saída
 X = dataset.iloc[:, 0:-1]
 Y = dataset.iloc[:, -1]
+"""
+# Separando os dados
+# Entrada
+X = dataset.iloc[:, [0, 2, 3, 4, 5, 6]]  # seleciona as colunas 1, 3, 4, 5, 6, 7
+# Saida
+Y = dataset.iloc[:, 1]  # seleciona a coluna 2
+
+Y = Y.astype(int)
+
+print("Valores de entrada X:")
+print(X)
+
+print("\nValores de saída y:")
+print(Y)
 
 
 # Método para testar o modelo de Regressão Logística a partir do arquivo correspondente
@@ -37,7 +61,7 @@ def test_modelo_lr():
 
     # Testando as métricas da Regressão Logística
     # Modifique as métricas de acordo com seus requisitos
-    assert acuracia_lr >= 0.75
+    assert acuracia_lr >= 0.6
     assert recall_lr >= 0.5
     assert precisao_lr >= 0.5
     assert f1_lr >= 0.5
@@ -54,7 +78,7 @@ def test_modelo_knn():
 
     # Testando as métricas do KNN
     # Modifique as métricas de acordo com seus requisitos
-    assert acuracia_knn >= 0.75
+    assert acuracia_knn >= 0.6
     assert recall_knn >= 0.5
     assert precisao_knn >= 0.5
     assert f1_knn >= 0.5

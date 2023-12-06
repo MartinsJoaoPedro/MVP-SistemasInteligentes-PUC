@@ -27,6 +27,10 @@ python -m venv env
 1. pip install -r requirements.txt
 2. python.exe -m pip install --upgrade pip
 
+## Para o teste
+
+pip install pytest
+
 ## Para api produto
 
 flask run --host 0.0.0.0 --port 5000 --reload
