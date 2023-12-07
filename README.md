@@ -51,4 +51,4 @@ https://colab.research.google.com/drive/1PmEglRh__gl69f7Kk5su_65l0e8lQrQh?usp=sh
 
 # Vídeo
 
-https://colab.research.google.com/drive/1PmEglRh__gl69f7Kk5su_65l0e8lQrQh?usp=sharing
+https://www.loom.com/share/47cdfe1c64034504b8e7749e794d9e23?sid=49a81b0e-de76-4011-bb07-51655e77ae05
