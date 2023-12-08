@@ -1,0 +1,7 @@
+# ignora
+env
+log
+_pycache_
+.pytest_cache
+model/_pycache_
+schemas/_pycache_
